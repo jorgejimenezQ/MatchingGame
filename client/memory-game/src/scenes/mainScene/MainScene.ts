@@ -33,6 +33,8 @@ export class MainScene extends Phaser.Scene {
 
     // Create an array with 24 cards
     this.cards = new Array(24)
+
+    // Create an align grid
   }
 
   create() {
