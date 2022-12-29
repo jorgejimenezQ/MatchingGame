@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 260 px in rem units */
+  --score-width: 16.25rem;
+  --score-height: 13.125rem;
+  /* --score-width: 260px;
+  --score-height: 210px; */
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  background-color: #fdf0d5;
+  color: #780000;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  background-color: #669bbc;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600 !important;
+  letter-spacing: 4px;
+  padding: 0 4rem;
+
+  margin-bottom: 3.5rem;
+}
+
+nav > h1 {
+  color: #780000;
+  font-size: 2rem;
+}
+
+.waiting {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.input-form {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+label {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.btn-start {
+  width: 100%;
+  background-color: #1d3557;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+/* hover effect */
+
+.btn-start:hover {
+  background-color: #4d7d9e;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+}
+
+.score-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* width: 10%; */
+  height: calc(var(--score-height) * 2);
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600 !important;
+  /* letter-spacing: 4px; */
+  margin-top: 3.5rem;
+  margin-right: 3rem;
+  width: 260px;
+}
+
+.player-score {
+  position: absolute;
+  width: var(--score-width);
+  height: var(--score-height);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 3rem;
+  background-color: #669bbc;
+}
+
+.player-score:nth-child(2) {
+  top: 49%;
+  /* background-color: #a8dadc; */
+}
+
+.player-score > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Lift of the page effect for the active class */
+.player-score.active {
+  border: solid 2px #780000;
+  z-index: 1000;
+  box-shadow: 0 0 10px #780000;
+}
+
+/* Add transition for box shadows
+ */
+.player-score.active {
+  transition: box-shadow 1s;
+  transition: border 1s;
+}
