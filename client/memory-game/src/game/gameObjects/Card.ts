@@ -9,6 +9,8 @@ export default class Card extends Phaser.GameObjects.Sprite {
   cardId: number | null = null
   border: Phaser.GameObjects.Image
   index: number
+  isMobile: boolean = false
+  scaleValues: { border: number; card: number } = { border: 0.1, card: 2 }
 
   constructor(
     scene: Phaser.Scene,
@@ -17,14 +19,20 @@ export default class Card extends Phaser.GameObjects.Sprite {
     texture: string,
     frame: number,
     index: number,
+    isMobile: boolean,
     clickCallback: Function
   ) {
     super(scene, x, y, texture, 0)
 
+    this.isMobile = isMobile
     this.index = index
     this.face = frame
     this.faceTexture = texture
     this.cardId = frame
+
+    if (this.isMobile) {
+      this.scaleValues = { border: 0.07, card: 1 }
+    }
 
     // Clickable
     this.setInteractive()
@@ -53,9 +61,10 @@ export default class Card extends Phaser.GameObjects.Sprite {
 
     // Add the card this.border
     this.border = this.scene.add.image(this.x, this.y, cardAssets.border.textureKey)
-    this.border.scale = 0.1
+    this.border.scale = this.scaleValues.border
+
     this.scene.add.existing(this.border)
-    this.scale = 2
+    this.scale = this.scaleValues.card
     this.border.setInteractive()
 
     this.border.on('pointerdown', () => {
@@ -90,11 +99,11 @@ export default class Card extends Phaser.GameObjects.Sprite {
       onComplete: () => {
         if (this.flipped) {
           this.setFrame(this.face)
-          this.setScale(2)
+          this.setScale(this.scaleValues.card)
           this.flipTween?.play()
         } else {
           this.setFrame(0)
-          this.setScale(2)
+          this.setScale(this.scaleValues.card)
           this.flipTween?.play()
         }
       },
@@ -115,5 +124,12 @@ export default class Card extends Phaser.GameObjects.Sprite {
     this.flipTween = null
     this.destroy()
     this.border.destroy()
+  }
+
+  repositionCard(x: number, y: number) {
+    this.x = x
+    this.y = y
+    this.border.x = x
+    this.border.y = y
   }
 }

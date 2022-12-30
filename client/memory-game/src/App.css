@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 :root {
@@ -19,6 +20,7 @@
 body {
   background-color: #fdf0d5;
   color: #780000;
+  overflow: hidden;
 }
 
 .main-container {
@@ -35,15 +37,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 10vh;
+  height: fit-content;
   background-color: #669bbc;
   color: #fff;
   font-size: 1.5rem;
   font-weight: 600 !important;
   letter-spacing: 4px;
-  padding: 0 4rem;
-
-  margin-bottom: 3.5rem;
+  padding: 0.5rem 4rem;
 }
 
 nav > h1 {
@@ -59,6 +59,19 @@ nav > h1 {
 .input-form {
   margin-top: 3rem;
   margin-bottom: 2rem;
+  width: 100;
+}
+
+.input-form > input {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: none;
+  /* border: none; */
+  border: solid 1px #669bbc;
+  /* margin-bottom: 1rem; */
 }
 
 label {
@@ -140,4 +153,42 @@ label {
 .player-score.active {
   transition: box-shadow 1s;
   transition: border 1s;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    padding: 0.5rem 1rem;
+  }
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+
+  .playerNames {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    margin-right: 1rem;
+  }
+
+  .score-container {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 320px;
+  }
+  .player-score {
+    height: fit-content;
+    left: 20px;
+    top: 154px !important;
+    display: none;
+
+    transition: display 1s;
+    width: fit-content !important;
+  }
+
+  .player-score.active {
+    display: block;
+  }
 }

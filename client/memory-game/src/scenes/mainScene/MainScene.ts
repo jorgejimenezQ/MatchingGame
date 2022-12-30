@@ -20,6 +20,7 @@ export class MainScene extends Phaser.Scene {
   currentStreak: number = 0
   playerTwoSelection: Card[] = []
   playerTwoSelectionQueue: number[] = []
+  isMobile: boolean = false
 
   constructor() {
     super({ key: mainSceneConfig.key })
@@ -33,6 +34,7 @@ export class MainScene extends Phaser.Scene {
 
     // Create an array with 24 cards
     this.cards = new Array(24)
+    this.isMobile = store.getState().gameSession.isMobile
 
     // Create an align grid
   }
@@ -53,6 +55,7 @@ export class MainScene extends Phaser.Scene {
           cardAssets.cardIcon.textureKey,
           this.cardIndexes[index],
           index,
+          this.isMobile,
           this.handleCardClick.bind(this)
         )
 
@@ -60,6 +63,10 @@ export class MainScene extends Phaser.Scene {
         this.cards[index] = newCard
         this.add.existing(newCard)
       }
+    }
+
+    if (this.isMobile) {
+      this.repositionCards()
     }
 
     connection.socket.on('playerTurn', (streak: number) => {
@@ -179,6 +186,15 @@ export class MainScene extends Phaser.Scene {
         })
       }
       this.playerTwoSelection = []
+    }
+  }
+
+  repositionCards() {
+    // Reposition the cards for mobile devices with 4 cards per row and 6 rows
+    for (let i = 0; i < 24; i++) {
+      const x = 50 + (i % 5) * 60
+      const y = 50 + Math.floor(i / 5) * 83
+      this.cards[i].repositionCard(x, y)
     }
   }
 }

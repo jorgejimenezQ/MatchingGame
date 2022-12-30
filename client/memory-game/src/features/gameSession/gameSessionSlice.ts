@@ -10,6 +10,7 @@ type InitialState = {
   firstPlayerCurrentTurn: boolean
   gameStarted: boolean
   gameExists: boolean
+  isMobile: boolean
 }
 
 const initialState: InitialState = {
@@ -22,6 +23,7 @@ const initialState: InitialState = {
   firstPlayerCurrentTurn: false,
   gameStarted: false,
   gameExists: false,
+  isMobile: false,
 }
 
 const gameSessionSlice = createSlice({
@@ -30,6 +32,9 @@ const gameSessionSlice = createSlice({
   reducers: {
     setSessionId: (state, action: PayloadAction<string>) => {
       state.sessionId = action.payload
+    },
+    setIsMobile: (state, action: PayloadAction<boolean>) => {
+      state.isMobile = action.payload
     },
     setOtherPlayer: (state, action: PayloadAction<string>) => {
       state.otherPlayer.username = action.payload
@@ -80,5 +85,6 @@ export const {
   gameExists,
   setGameStarted,
   resetAll,
+  setIsMobile,
 } = gameSessionSlice.actions
 export default gameSessionSlice.reducer

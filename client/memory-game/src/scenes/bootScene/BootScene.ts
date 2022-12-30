@@ -4,6 +4,7 @@ import mainSceneConfig from '../mainScene/main.config'
 import { cardAssets } from '../../game/gameObjects/cards.asset'
 
 export class BootScene extends Phaser.Scene {
+  isMobile: boolean = false
   constructor(private username: string, private cardAsset: any, private cardBorderAsset: any) {
     super({ key: bootConfig.key })
 
@@ -11,6 +12,7 @@ export class BootScene extends Phaser.Scene {
     console.log('BootScene create()', this.username)
     this.cardAsset = cardAssets.cardIcon
     this.cardBorderAsset = cardAssets.border
+    this.isMobile = store.getState().gameSession.isMobile
   }
 
   init() {}

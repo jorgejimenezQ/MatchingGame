@@ -9,6 +9,7 @@ import {
   setGameStarted,
   gameExists,
   resetAll,
+  setIsMobile,
 } from './features/gameSession/gameSessionSlice'
 import { useAppDispatch, useAppSelector } from './app/hooks'
 import Phaser from 'phaser'
@@ -30,8 +31,18 @@ export default function App() {
   const usernameSet = useAppSelector((state) => state.username.username !== '')
   const currentTurn = useAppSelector((state) => state.gameSession.firstPlayerCurrentTurn)
   const isGameCreated = useAppSelector((state) => state.gameSession.gameExists)
+  const [mobile, setMobile] = useState(false)
 
   const dispatch = useAppDispatch()
+
+  // Check if mobile device or not
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setMobile(true)
+      dispatch(setIsMobile(true))
+      gameConfig.height = 450
+    }
+  }, [])
 
   const startGameEvent = useCallback(
     (game, isGameCreated) => {
@@ -99,9 +110,13 @@ export default function App() {
   return (
     <div className='main-wrapper'>
       <nav>
-        <div id='user-1'>{usernameInput}</div>
-        <h1 className='title'>Fantasy Flip</h1>
-        <div id='user-1'>{player2}</div>
+        <div id='user-1' className='playerNames'>
+          {usernameInput + (mobile && gameStarted ? ': ' + currPlayerOneScore : '')}
+        </div>
+        <h1 className='title'>Fantasy Match</h1>
+        <div id='user-2' className='playerNames'>
+          {player2 + (mobile && gameStarted ? ': ' + currPlayerTwoScore : '')}
+        </div>
       </nav>
       {waiting ? (
         <div className='waiting'>
