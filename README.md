@@ -37,7 +37,7 @@ I had a pretty clear idea of how the data was going to flow through the app. I k
 would be handling the UI, User input, displaying player scores, etc. Phaser would handle the game logic, detect
 when a player scores, and send data to the server. Both React and Phaser would receive and send data to the server.
 
-[![React and Phase communicate through redux store](./react-redux-2.png)](./react-redux-2.png)
+[![React and Phase communicate through redux store](react-redux-2.png)](./react-redux-2.png)
 
 ## Back End Stack
 
