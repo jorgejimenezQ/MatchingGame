@@ -1,5 +1,7 @@
 ## Fantasy Match
 
+Fantasy Match is a card matching game where the user has to match the cards by clicking on them. The app allows two players to play against each other. A game session is created when a player joins the game. The game will start when the second player joins the game.
+
 [Check Out the Game!](https://josephmancuso.github.io/fantasy-match/)
 
 [TOC]
@@ -11,12 +13,6 @@
 - [Back End Stack](#back-end-stack)
 - [Data flow](#data-flow) -->
 <!-- - [deploying](#deploying) -->
-
-## The project
-
-The game is a simple match game. The user has to match the cards by clicking on them. The app
-allows two players to play against each other. A game session is created when a player joins the
-game. The game will start when the second player joins the game.
 
 <img src="./desktop.png" alt="An image of the game in desktop mode" width="500"/>
 <br/>
