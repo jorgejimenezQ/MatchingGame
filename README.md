@@ -14,8 +14,8 @@ The game is a simple match game. The user has to match the cards by clicking on 
 allows two players to play against each other. A game session is created when a player joins the
 game. The game will start when the second player joins the game.
 
-[![Fantasy Match desktop version](./desktop.png)](https://jorgejimenezq.github.io/matching-game/)
-[![Fantasy Match mobile version](./mobile.png)](https://jorgejimenezq.github.io/matching-game/)
+[![Fantasy Match desktop version](./desktop.png)](https://jorgejimenezq.github.io/matching-game/ | width=100 )
+[![Fantasy Match mobile version](./mobile.png)](https://jorgejimenezq.github.io/matching-game/ | width=100)
 
 ## Front End Stack
 
