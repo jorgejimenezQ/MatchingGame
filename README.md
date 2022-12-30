@@ -4,7 +4,11 @@ Fantasy Match is a card matching game where the user has to match the cards by c
 
 [Check Out the Game!](https://josephmancuso.github.io/fantasy-match/)
 
-[TOC]
+##### Table of Contents
+
+[Front End Stack](#front-end-stack)
+[Back End Stack](#back-end-stack)
+[Data flow](#data-flow)
 
 <!--
 - [Fantasy Match](#fantasy-match)
@@ -54,6 +58,16 @@ when a player scores, and send data to the server. Both React and Phaser would r
 So, I created a redux store using React-Redux-Toolkit. I used the store to store the a game session id, both player's usernames, both player's scores, and the current player's turn. It is also great to get an overview of how web sockets work before tackling a more complex project that requires them.
 
 [![React and Phase communicate through redux store](react-redux-2.png)](./react-redux-2.png)
+
+## Features I am working on
+
+- [ ] Add a timer to the game
+- [ ] Add a leaderboard
+- [ ] Allow the user to save game sessions
+- [ ] Allow up to four player
+- [ ] Add a chat feature
+- [ ] Add a game lobby
+- [ ] Create and share game sessions
 
 ## deploying
 
