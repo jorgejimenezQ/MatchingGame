@@ -36,6 +36,7 @@ class SocketConnection {
   // regex expression for a word
   // const wordRegex = new RegExp('^[a-zA-Z]+$')
   constructor() {
+    // production https://mg-service.onrender.com
     this.socket = io('http://10.0.0.35:8000', { autoConnect: false })
     this.connectionId = v4()
 
