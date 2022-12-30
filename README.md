@@ -9,14 +9,7 @@ Fantasy Match is a card matching game where the user has to match the cards by c
 [Front End Stack](#front-end-stack)
 [Back End Stack](#back-end-stack)
 [Data flow](#data-flow)
-
-<!--
-- [Fantasy Match](#fantasy-match)
-- [The project](#the-project)
-- [Front End Stack](#front-end-stack)
-- [Back End Stack](#back-end-stack)
-- [Data flow](#data-flow) -->
-<!-- - [deploying](#deploying) -->
+[Features I am working on](#features-i-am-working-on)
 
 <img src="./desktop.png" alt="An image of the game in desktop mode" width="500"/>
 <br/>
@@ -61,6 +54,8 @@ So, I created a redux store using React-Redux-Toolkit. I used the store to store
 
 ## Features I am working on
 
+Right now I have created an MVP that I will definitely be expanding on. I have a lot of ideas for the game and I am excited to implement them. Here is a list of features I am working on:
+
 - [ ] Add a timer to the game
 - [ ] Add a leaderboard
 - [ ] Allow the user to save game sessions
@@ -68,6 +63,8 @@ So, I created a redux store using React-Redux-Toolkit. I used the store to store
 - [ ] Add a chat feature
 - [ ] Add a game lobby
 - [ ] Create and share game sessions
+- [ ] Add different themes for the cards
+- [ ] Style up the UI
 
 ## deploying
 
