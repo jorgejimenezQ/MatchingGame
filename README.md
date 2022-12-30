@@ -1,10 +1,10 @@
 ## Fantasy Match
 
-<!--  add a link to the deploying heading -->
+# Table of Contents
 
-[How to deploy](#deploying)
-[The project](#the-project)
-[Data flow](#data-flow)
+1. [How to deploy](#deploying)
+2. [The project](#the-project)
+3. [Data flow](#data-flow)
 
 ### The project
 
