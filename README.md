@@ -2,16 +2,17 @@
 
 [Check Out the Game!](https://josephmancuso.github.io/fantasy-match/)
 
-# Table of Contents
+[TOC]
 
-- [Table of Contents](#table-of-contents)
-    - [The project](#the-project)
-  - [Front End Stack](#front-end-stack)
-  - [Back End Stack](#back-end-stack)
-      - [Data flow](#data-flow)
-    - [deploying](#deploying)
+<!--
+- [Fantasy Match](#fantasy-match)
+- [The project](#the-project)
+- [Front End Stack](#front-end-stack)
+- [Back End Stack](#back-end-stack)
+- [Data flow](#data-flow) -->
+<!-- - [deploying](#deploying) -->
 
-### The project
+## The project
 
 The game is a simple match game. The user has to match the cards by clicking on them. The app
 allows two players to play against each other. A game session is created when a player joins the
@@ -48,7 +49,7 @@ For the back end, I used Node and Express because of their simplicity to get up 
 
 Socket.io is a great library for real-time communication app like this one. It abstract a lot of the complexity of web sockets and makes it easy to get your ideas on the screen.
 
-#### Data flow
+## Data flow
 
 I had a pretty clear idea of how the data was going to flow through the app. I knew the React side of the app
 would be handling the UI, User input, displaying player scores, etc. Phaser would handle the game logic, detect
@@ -58,7 +59,7 @@ So, I created a redux store using React-Redux-Toolkit. I used the store to store
 
 [![React and Phase communicate through redux store](react-redux-2.png)](./react-redux-2.png)
 
-### deploying
+## deploying
 
 ```bash
 # Commit all changes
