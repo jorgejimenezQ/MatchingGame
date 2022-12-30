@@ -4,9 +4,12 @@
 
 # Table of Contents
 
-1. [How to deploy](#deploying)
-2. [The project](#the-project)
-3. [Data flow](#data-flow)
+- [Table of Contents](#table-of-contents)
+    - [The project](#the-project)
+  - [Front End Stack](#front-end-stack)
+  - [Back End Stack](#back-end-stack)
+      - [Data flow](#data-flow)
+    - [deploying](#deploying)
 
 ### The project
 
@@ -35,19 +38,25 @@ I did not have a lot of experience with Phaser or React, so I had to do a lot of
 are a lot of resources online for React, Phaser is a different story. I mostly read the documentation
 and looked at the examples on their website.
 
+## Back End Stack
+
+- [Node](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Socket.io](https://socket.io/)
+
+For the back end, I used Node and Express because of their simplicity to get up and running as we. For this project, I wanted to concentrate on getting the connection between the players right because there will be a lot moving pieces. Therefore, I used a stack that I was familiar with and had a lot of resources online.
+
+Socket.io is a great library for real-time communication app like this one. It abstract a lot of the complexity of web sockets and makes it easy to get your ideas on the screen.
+
 #### Data flow
 
 I had a pretty clear idea of how the data was going to flow through the app. I knew the React side of the app
 would be handling the UI, User input, displaying player scores, etc. Phaser would handle the game logic, detect
 when a player scores, and send data to the server. Both React and Phaser would receive and send data to the server.
 
+So, I created a redux store using React-Redux-Toolkit. I used the store to store the a game session id, both player's usernames, both player's scores, and the current player's turn. It is also great to get an overview of how web sockets work before tackling a more complex project that requires them.
+
 [![React and Phase communicate through redux store](react-redux-2.png)](./react-redux-2.png)
-
-## Back End Stack
-
-- [Node](https://nodejs.org/en/)
-- [Express](https://expressjs.com/)
-- [Socket.io](https://socket.io/)
 
 ### deploying
 
