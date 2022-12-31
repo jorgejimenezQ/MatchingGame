@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react'
-import './App.css'
 import { setUsername } from '../features/username/usernameSlice'
 import {
   setSessionId,
@@ -21,7 +20,6 @@ import GameComponent from '../components/GameComponent'
 export default function StartScreen() {
   const [usernameInput, setUsernameInput] = useState('')
   const [player2, setPlayer2] = useState('')
-  const [isNameSet, setIsNameSet] = useState(false)
   const [waiting, setWaiting] = useState(false)
   const [game, setGame] = useState<Phaser.Game | null>(null)
 
@@ -31,14 +29,12 @@ export default function StartScreen() {
   const usernameSet = useAppSelector((state) => state.username.username !== '')
   const currentTurn = useAppSelector((state) => state.gameSession.firstPlayerCurrentTurn)
   const isGameCreated = useAppSelector((state) => state.gameSession.gameExists)
-  const [mobile, setMobile] = useState(false)
 
   const dispatch = useAppDispatch()
 
   // Check if mobile device or not
   useEffect(() => {
     if (window.innerWidth < 600) {
-      setMobile(true)
       dispatch(setIsMobile(true))
       gameConfig.height = 450
     }
@@ -99,7 +95,6 @@ export default function StartScreen() {
     })
 
     dispatch(setUsername(usernameInput))
-    setIsNameSet(true)
     setWaiting(true)
     // new Phaser.Game(gameConfig)
 
@@ -109,15 +104,6 @@ export default function StartScreen() {
 
   return (
     <div className='main-wrapper'>
-      <nav>
-        <div id='user-1' className='playerNames'>
-          {usernameInput + (mobile && gameStarted ? ': ' + currPlayerOneScore : '')}
-        </div>
-        <h1 className='title'>Fantasy Match</h1>
-        <div id='user-2' className='playerNames'>
-          {player2 + (mobile && gameStarted ? ': ' + currPlayerTwoScore : '')}
-        </div>
-      </nav>
       {waiting ? (
         <div className='waiting'>
           <h2>Finding an available game...</h2>
