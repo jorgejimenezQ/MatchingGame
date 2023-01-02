@@ -1,0 +1,30 @@
+/*  */
+
+.invite-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 1.5rem;
+  height: 100%;
+  margin-top: 2rem;
+  border: 1px solid #669bbc;
+  border-radius: 20px;
+  background-color: #eeeeee;
+}
+
+.copy-button {
+  background-color: #669bbc;
+  margin-left: 1rem;
+}
+
+.copied {
+  color: #780000;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.invite-menu input {
+  min-width: 300px;
+}

@@ -41,7 +41,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6em 1rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -133,6 +133,11 @@ body {
   width: 100%;
 }
 
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -161,14 +166,13 @@ nav > h1 {
 .input-form {
   margin-top: 3rem;
   margin-bottom: 2rem;
-  width: 100;
+  width: 100%;
 }
 
 .input-form > input {
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
-  width: 100%;
   border-radius: 5px;
   box-shadow: none;
   /* border: none; */
@@ -182,11 +186,13 @@ label {
   font-weight: 600;
 }
 .btn-start {
+  margin-top: 1rem;
   width: 100%;
   background-color: #1d3557;
   color: #ffffff;
+  font-size: 1.3rem;
   font-weight: 600;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
 }
 /* hover effect */
 

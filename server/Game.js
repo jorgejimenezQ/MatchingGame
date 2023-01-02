@@ -20,6 +20,7 @@ export default class Game {
   height = 3
   sessionId
   pairsRemaining = (8 * 3) / 2
+  isInvite = false
 
   constructor() {
     this.players = {}
@@ -44,6 +45,7 @@ export default class Game {
       username: username,
       score: 0,
       connectionId: connectionId,
+      ready: false,
     }
     this.numberOfPlayers++
   }

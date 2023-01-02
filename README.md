@@ -56,17 +56,32 @@ So, I created a redux store using React-Redux-Toolkit. I used the store to store
 
 Right now I have created an MVP that I will definitely be expanding on. I have a lot of ideas for the game and I am excited to implement them. Here is a list of features I am working on:
 
-- [ ] Add a timer to the game
-- [ ] Add a leaderboard
+- [ ] User invites
+- [ ] Style up the UI
+- [ ] Add a leader board
 - [ ] Allow the user to save game sessions
 - [ ] Allow up to four player
 - [ ] Add a chat feature
 - [ ] Add a game lobby
-- [ ] Create and share game sessions
 - [ ] Add different themes for the cards
-- [ ] Style up the UI
+- [ ] Add a timer to the game
 
 ## deploying
+
+1. Add the base url to the vite config file
+
+```js
+/*vite.config.js*/
+// ...
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: '/matching-game/',
+  plugins: [react()],
+})
+```
+
+2. Build the project, add the dist folder, and deploy using gh-pages
 
 ```bash
 # Commit all changes

@@ -16,11 +16,13 @@ interface ServerToClientEvents {
 }
 
 interface ClientToServerEvents {
-  join: (d: string, callback: (d: any) => void) => void
+  join: (d: any, callback: (d: any) => void) => void
   turnOver: (score: number) => void
   cardClick: (cardIndex) => void
   match: () => void
   restartGame: () => void
+  createInviteGame: (d: string, callback: (d: any) => void) => void
+  playerReady: (callback: () => void) => void
 }
 
 type Connection = {

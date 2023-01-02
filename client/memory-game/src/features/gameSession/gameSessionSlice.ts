@@ -11,6 +11,7 @@ type InitialState = {
   gameStarted: boolean
   gameExists: boolean
   isMobile: boolean
+  inviteUrl: string
 }
 
 const initialState: InitialState = {
@@ -24,6 +25,7 @@ const initialState: InitialState = {
   gameStarted: false,
   gameExists: false,
   isMobile: false,
+  inviteUrl: '',
 }
 
 const gameSessionSlice = createSlice({
@@ -45,7 +47,6 @@ const gameSessionSlice = createSlice({
     playerTwoScore(state) {
       state.playerTwoScore++
     },
-
     setCardIndexes(state, action: PayloadAction<number[]>) {
       state.cardIndexes = action.payload
     },
@@ -71,6 +72,9 @@ const gameSessionSlice = createSlice({
       state.sessionId = ''
       state.gameStarted = false
     },
+    setInviteUrl(state, action: PayloadAction<string>) {
+      state.inviteUrl = action.payload
+    },
   },
 })
 
@@ -86,5 +90,6 @@ export const {
   setGameStarted,
   resetAll,
   setIsMobile,
+  setInviteUrl,
 } = gameSessionSlice.actions
 export default gameSessionSlice.reducer

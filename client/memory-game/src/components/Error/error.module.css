@@ -1,0 +1,13 @@
+/**
+* The styles for the error component
+* - The error component is a simple centered div with a red background and white text
+*  
+* author: @jorge
+*/
+
+.error {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  width: fit-content;
+}

@@ -47,13 +47,50 @@ io.on('connection', (socket) => {
     console.log('player disconnected: ', games)
   })
 
+  socket.on('playerReady', () => {
+    const game = games[socket.sessionId]
+    if (!game) return
+    const player = game.players[socket.connectionId]
+    if (!player) return
+    player.ready = true
+
+    if (game.gameFull()) {
+      // Check if both players are ready
+      const playerKeys = Object.keys(game.players)
+      const ready = playerKeys.every((key) => game.players[key].ready)
+      const firstPlayer = playerKeys[Math.floor(Math.random() * playerKeys.length)]
+      console.log('firstPlayer', firstPlayer)
+
+      // If all players are ready, start the game
+      if (ready) {
+        // Start the game
+        io.to(socket.sessionId).emit('startGame', {
+          players: game.players,
+          firstPlayer,
+        })
+      }
+    }
+  })
+
   // Finds a game for the player. If there is no game available, it creates a new one
   socket.on('join', (data, callback) => {
-    const username = data
-    let game = findAvailableGame()
+    const username = data.username
+    const isInvite = data.isInvite
+    const sessionId = data.sessionId
+    const createInvite = data.createInvite
+    let game = null
+
+    // If the player is invited to a game, find the game
+    // Otherwise, find an available game
+    if (isInvite) game = games[sessionId]
+    else if (!createInvite) game = findAvailableGame()
+
     if (!game) {
       game = new Game()
       games[game.sessionId] = game
+
+      // Is this an invite?
+      if (createInvite) game.isInvite = true
     }
 
     console.log('game', game)
@@ -69,10 +106,13 @@ io.on('connection', (socket) => {
       const firstPlayer = playerKeys[Math.floor(Math.random() * playerKeys.length)]
       console.log('firstPlayer', firstPlayer)
 
-      io.to(socket.sessionId).emit('startGame', {
-        players: game.players,
-        firstPlayer,
-      })
+      const ready = playerKeys.every((key) => game.players[key].ready)
+      if (ready) {
+        io.to(socket.sessionId).emit('startGame', {
+          players: game.players,
+          firstPlayer,
+        })
+      }
     }
 
     // Send the game to the player
@@ -127,10 +167,22 @@ const findAvailableGame = () => {
   const keys = Object.keys(games)
   let game = null
   keys.forEach((key) => {
-    if (!games[key].gameFull()) {
+    if (!games[key].gameFull() && !games[key].isInvite) {
       game = games[key]
     }
   })
+  return game
+}
+
+const findInviteGame = (gameSession) => {
+  const keys = Object.keys(games)
+  let game = null
+  keys.forEach((key) => {
+    if (games[key].isInvite && games[key].sessionId === gameSession) {
+      game = games[key]
+    }
+  })
+
   return game
 }
 

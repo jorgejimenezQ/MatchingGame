@@ -1,9 +1,9 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import StartScreen from './components/StartScreen'
+import { Outlet, Route, Routes } from 'react-router-dom'
+import StartScreen from './components/Start/StartScreen'
 
 import { useAppDispatch, useAppSelector } from './app/hooks'
-import NavbarComponent from './components/NavbarComponent'
+import NavbarComponent from './components/Navbar/NavbarComponent'
 
 const App = () => {
   const gameStarted = useAppSelector((state) => state.gameSession.gameStarted)
@@ -23,10 +23,8 @@ const App = () => {
         currPlayerTwoScore={currPlayerTwoScore}
         mobile={mobile}
       />
-      <Routes>
-        <Route path='/' element={<StartScreen />} />
-        <Route path='*' element={<StartScreen />} />
-      </Routes>
+
+      <Outlet />
     </>
   )
 }
